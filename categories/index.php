@@ -1,3 +1,6 @@
+<?php 
+  include "../action/cek.php";
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -58,7 +61,7 @@
                               <td><?= $hasil['categori_name']; ?></td>
                               <td> 
                                 <a class="btn btn-rounded btn-info" href="edit_categori.php?id=<?= $hasil['id'];?>">edit</a>
-                                <a class="btn btn-rounded btn-danger" href="../action/categori_proses.php?action=delete&id=<?= $hasil['id'];?> ">Delete</a>
+                                <a class="btn btn-rounded btn-danger delete" href="../action/categori_proses.php?action=delete&id=<?= $hasil['id'];?> ">Delete</a>
                               </td>
                             </tr>
                             <?php 

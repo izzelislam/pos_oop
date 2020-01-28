@@ -1,4 +1,5 @@
 <?php 
+  include "../action/cek.php";
   include "../config/db_user.php";
   $id=$_GET['id'];
   $data=new user();
@@ -57,7 +58,7 @@
                         </div>
                         <div class="col-md-6  pl-5">
                           <a class="btn btn-rounded btn-info" href="">Edit</a>
-                          <a class="btn btn-rounded btn-danger" href="">Delete</a>
+                          <a class="btn btn-rounded btn-danger" href="../action/user_proses.php?action=delete&id=<?= $result['id']; ?>">Delete</a>
                         </div>
                       </div>
                     </div>

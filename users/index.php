@@ -1,4 +1,5 @@
 <?php 
+  include "../action/cek.php";
   include "../config/db_user.php";
   $data=new user();
   $result=$data->read();

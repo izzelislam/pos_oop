@@ -1,4 +1,5 @@
 <?php 
+  include "../action/cek.php";
   include "../config/db_categori.php";
   $id=$_GET['id'];
   $categori=new categori();

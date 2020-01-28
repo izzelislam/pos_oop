@@ -1,20 +1,20 @@
 <?php
  
- include "../config/db_categori.php";
- $categori=new categori();
+ include "../config/db_user.php";
+ $user=new user();
 
  $proses= $_GET['action'];
  if ($proses == "create") 
  {
- 	$categori->create_categori($_POST['categori_name']);
+ 	$user->create_categori($_POST['categori_name']);
  	header('location:../categories');
  }
  elseif ($proses=="delete")
  {
- 	$categori->delete_categori($_GET['id']);
- 	header('location:../categories');
+ 	$user->delete_user($_GET['id']);
+ 	header('location:../users');
  }
  elseif ($proses=="update") {
- 	$categori->update_categori($_POST['categori_name'],$_POST['id']);
+ 	$user->update_categori($_POST['categori_name'],$_POST['id']);
  	header('location:../categories');
  }

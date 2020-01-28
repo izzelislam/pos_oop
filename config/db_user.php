@@ -19,9 +19,9 @@ class user extends con
 		$sql="INSERT INTO categori (categori_name) VALUES ('$categori_name')";
 		mysqli_query($this->konek,$sql);
 	}
-	public function delete_categori($id)
+	public function delete_user($id)
 	{
-		$sql="DELETE FROM categori WHERE id='$id'";
+		$sql="DELETE FROM user WHERE id='$id'";
 		mysqli_query($this->konek,$sql);
 	}
 	public function show($id)
@@ -35,5 +35,11 @@ class user extends con
 		$sql="UPDATE categori SET categori_name='$categori_name' WHERE id='$id'";
 		mysqli_query($this->konek,$sql);
 		header('location:../categoris');
+	}
+	public function sort_email($email)
+	{
+		$sql="SELECT * FROM user WHERE email='$email'";
+		$data=mysqli_query($this->konek,$sql);
+		return mysqli_fetch_assoc($data);
 	}
 } 

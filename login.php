@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,11 +17,11 @@
           <div class="row w-100">
             <div class="col-lg-4 mx-auto">
               <div class="auto-form-wrapper">
-                <form action="#">
+                <form action="proses_login.php" method="POST">
                   <div class="form-group">
-                    <label class="label">Username</label>
+                    <label class="label">Email</label>
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Username">
+                      <input type="email" name="email" class="form-control" placeholder="Email">
                       <div class="input-group-append">
                         <span class="input-group-text">
                           <i class="mdi mdi-check-circle-outline"></i>
@@ -31,7 +32,7 @@
                   <div class="form-group">
                     <label class="label">Password</label>
                     <div class="input-group">
-                      <input type="password" class="form-control" placeholder="*********">
+                      <input type="password" name="password" class="form-control" placeholder="*********">
                       <div class="input-group-append">
                         <span class="input-group-text">
                           <i class="mdi mdi-check-circle-outline"></i>
