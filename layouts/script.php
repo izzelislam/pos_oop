@@ -1,15 +1,15 @@
   <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="http://localhost/master1/PosOop/start/src/assets/vendors/js/vendor.bundle.base.js"></script>
-    <script src="http://localhost/master1/PosOop/start/src/assets/vendors/js/vendor.bundle.addons.js"></script>
+    <script src="/master1/PosOop/start/src/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/master1/PosOop/start/src/assets/vendors/js/vendor.bundle.addons.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
     <!-- inject:js -->
-    <script src="http://localhost/master1/PosOop/start/src/assets/js/shared/off-canvas.js"></script>
-    <script src="http://localhost/master1/PosOop/start/src/assets/js/shared/misc.js"></script>
+    <script src="/master1/PosOop/start/src/assets/js/shared/off-canvas.js"></script>
+    <script src="/master1/PosOop/start/src/assets/js/shared/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
-    <script src="http://localhost/master1/PosOop/start/src/assets/js/demo_1/dashboard.js"></script>
+    <script src="/master1/PosOop/start/src/assets/js/demo_1/dashboard.js"></script>
     <!-- End custom js for this page-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js" ></script>

@@ -1,16 +1,5 @@
 <?php 
   include_once "../action/cek.php";
-  include_once "../config/db_categori.php";
-  $id=$_GET['id'];
-  $categori=new categori();
-  if (isset($id)) 
-  {
-    $result=$categori->show($id);
-  }
-  else
-  {
-    echo "gagal update";
-  }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>POS</title>
+    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
     <!-- plugins:css -->
     <?php include_once"../layouts/links.php"; ?>
 
@@ -39,26 +28,24 @@
             <div class="row page-title-header">
               <div class="col-12">
                 <div class="page-header">
-                  <h4 class="page-title">Edit Categori</h4>
+                  <h5 class="page-title">selamat datang       .<strong class="text-primary"><?= $_SESSION['name'];?></strong></h5>
                 </div>
-                 <div class="row">
-                   <div class="col-md-12 grid-margin stretch-card">
-                     <div class="card">
-                       <div class="card-body">
-                         <form class="forms-sample" method="post" action="../action/categori_proses.php?action=update">
-                           <div class="form-group">
-                            <input type="hidden" name="id" value="<?= $result['id']; ?>">
-                             <label for="categori_name">Categori Name</label>
-                             <input type="text" class="form-control" id="categori_name" placeholder="Categori Name" name="categori_name" value="<?= $result['categori_name'];?>">
-                           </div>
-                           
-                           <button type="submit" class="btn btn-success mr-2">Update</button>
-                           <a href="index.php" class="btn btn-light">Back</a>
-                         </form>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
+                <div class="col-md-4 grid-margin stretch-card average-price-card">
+                    <div class="card text-white">
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between pb-2 align-items-center">
+                          <h2 class="font-weight-semibold mb-0">4,624</h2>
+                          <div class="icon-holder">
+                            <i class="mdi mdi-briefcase-outline"></i>
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <h5 class="font-weight-semibold mb-0">Average Price</h5>
+                          <p class="text-white mb-0">Since last month</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
               </div>
             </div>
             <!-- Page Title Header Ends-->

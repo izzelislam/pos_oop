@@ -1,6 +1,6 @@
 <?php
  
- include "../config/db_user.php";
+ include_once "../config/db_user.php";
  $user=new user();
 
  $proses= $_GET['action'];

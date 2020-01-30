@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	include "./config/db_user.php";
+	include_once "./config/db_user.php";
 	
 	$email=$_POST['email'];
 	$pass =$_POST['password'];
@@ -15,7 +15,8 @@ if (isset($email))
 		$_SESSION['email']=$result['email'];
 		$_SESSION['password']=$result['password'];
 		$_SESSION['name']=$result['name'];
-		header('location:index.php');
+		$_SESSION['id']=$result['id'];
+		header('location:./dasboard/index.php');
 
 	}
 	else

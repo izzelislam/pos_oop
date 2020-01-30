@@ -38,14 +38,20 @@
                         <a class="btn btn-rounded btn-success mb-3" href="create_categori.php">Tambah Categori</a>
                         <?php 
                           include_once "../config/db_categori.php";
-                            $read=new categori();
+                          include_once "../config/db_item.php";
+                            $read=new item();
                             $data=$read->read();
                          ?>
                         <table class="table table-bordered">
                           <thead>
                             <tr>
                               <th> No </th>
-                              <th> Categori Name </th>
+                              <th> Categori</th>
+                              <th> Img </th>
+                              <th> Item Name </th>
+                              <th> Price </th>
+                              <th> Stok </th>
+                              <th> Status </th>
                               <th> Action </th>
                            </tr>
                           </thead>
@@ -56,9 +62,13 @@
                                 foreach ($data as $hasil) {
                              ?>
                             <tr>
-                              <td><?= $no++;?>
-                              </td>
-                              <td><?= $hasil['categori_name']; ?></td>
+                              <td><?= $no++;?></td>
+                              <td><?= $hasil['id_categori']; ?></td>
+                              <td><?= $hasil['img']; ?></td>
+                              <td><?= $hasil['name_item']; ?></td>
+                              <td>Rp.<?= $hasil['price']; ?></td>
+                              <td><?= $hasil['stok']; ?></td>
+                              <td><?= $hasil['status']; ?></td>
                               <td> 
                                 <a class="btn btn-rounded btn-info" href="edit_categori.php?id=<?= $hasil['id'];?>">edit</a>
                                 <a class="btn btn-rounded btn-danger delete" href="../action/categori_proses.php?action=delete&id=<?= $hasil['id'];?> ">Delete</a>

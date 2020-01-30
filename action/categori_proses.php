@@ -1,6 +1,6 @@
 <?php
  
- include "../config/db_categori.php";
+ include_once "../config/db_categori.php";
  $categori=new categori();
 
  $proses= $_GET['action'];

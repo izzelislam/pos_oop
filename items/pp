@@ -1,3 +1,13 @@
+
+                  
+                   <div class="col-md-12 grid-margin stretch-card">
+                     <div class="card">
+                       <div class="card-body">
+                         <form class="forms-sample" method="post" action="../action/categori_proses.php?action=create">
+                           <div class="form-group">
+                             <label for="categori_name">Categori Name</label>
+                             <input type="text" class="form-control" id="categori_name" placeholder="Categori Name" name="categori_name">
+                           </div>
                             <div class="form-group">
                              <label for="exampleInputEmail3">Email address</label>
                              <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
@@ -24,3 +34,10 @@
                              <label for="exampleTextarea1">Textarea</label>
                              <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
                            </div>
+                           
+                           <button type="submit" class="btn btn-success mr-2">Submit</button>
+                           <a href="index.php" class="btn btn-light">Back</a>
+                         </form>
+                       </div>
+                     </div>
+                   </div>

@@ -1,9 +1,9 @@
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
           <a class="navbar-brand brand-logo" href="index.html">
-            <img src="http://localhost/master1/PosOop/start/src/assets/images/logo.svg" alt="logo" /> </a>
+            <img src="/master1/PosOop/start/src/assets/images/logo.svg" alt="logo" /> </a>
           <a class="navbar-brand brand-logo-mini" href="index.html">
-            <img src="http://localhost/master1/PosOop/start/src/assets/images/logo-mini.svg" alt="logo" /> </a>
+            <img src="/master1/PosOop/start/src/assets/images/logo-mini.svg" alt="logo" /> </a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
           <form class="ml-auto search-form d-none d-md-block" action="#">
@@ -22,7 +22,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="http://localhost/master1/PosOop/start/src/assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic"> </div>
+                    <img src="/master1/PosOop/start/src/assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic"> </div>
                   <div class="preview-item-content flex-grow py-2">
                     <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
                     <p class="font-weight-light small-text"> The meeting is cancelled </p>
@@ -30,7 +30,7 @@
                 </a>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="http://localhost/master1/PosOop/start/src/assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic"> </div>
+                    <img src="/master1/PosOop/start/src/assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic"> </div>
                   <div class="preview-item-content flex-grow py-2">
                     <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
                     <p class="font-weight-light small-text"> The meeting is cancelled </p>
@@ -38,7 +38,7 @@
                 </a>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="http://localhost/master1/PosOop/start/src/assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic"> </div>
+                    <img src="/master1/PosOop/start/src/assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic"> </div>
                   <div class="preview-item-content flex-grow py-2">
                     <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
                     <p class="font-weight-light small-text"> The meeting is cancelled </p>
@@ -86,7 +86,7 @@
               </div>
             </li>
             <?php 
-                include "profile.php";
+                require_once "profile.php";
              ?>
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">

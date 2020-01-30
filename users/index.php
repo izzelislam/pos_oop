@@ -1,8 +1,8 @@
 <?php 
-  include "../action/cek.php";
-  include "../config/db_user.php";
-  $data=new user();
-  $result=$data->read();
+  include_once "../action/cek.php";
+  include_once "../config/db_user.php";
+  $dat=new user();
+  $res=$dat->read();
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,17 +12,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
     <!-- plugins:css -->
-    <?php include"../layouts/links.php"; ?>
+    <?php include_once"../layouts/links.php"; ?>
 
   </head>
   <body>
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
-      <?php include "../layouts/navbar.php"; ?>
+      <?php include_once "../layouts/navbar.php"; ?>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
-         <?php include '../layouts/sidebar.php'; ?>
+         <?php include_once '../layouts/sidebar.php'; ?>
        
         <!-- partial -->
         <div class="main-panel">
@@ -51,9 +51,9 @@
                           </thead>
                           <tbody>
                             <?php 
-                              if (!empty($result)) {
+                              if (!empty($res)) {
                                 $no=1;
-                                foreach ($result as $hasil) {
+                                foreach ($res as $hasil) {
                              ?>
                             <tr>
                               <td><?= $no++;?>
@@ -81,13 +81,13 @@
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <?php include "../layouts/footer.php"; ?>
+          <?php include_once "../layouts/footer.php"; ?>
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-  <?php include "../layouts/script.php"; ?>
+  <?php include_once "../layouts/script.php"; ?>
   </body>
 </html>
