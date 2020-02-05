@@ -46,6 +46,8 @@
                       </div>
                     </div>
                   </div>
+                  <div class="content-wrapper">
+          </div>
               </div>
             </div>
             <!-- Page Title Header Ends-->

@@ -36,10 +36,21 @@ class item extends con
 		$data=mysqli_query($this->konek,$sql);
 		return mysqli_fetch_assoc($data);
 	}
-	public function update_item($item_name,$id)
+	public function update_item($id,$id_categori,$img,$name_item,$price,$stok,$status)
 	{
-		$sql="UPDATE item SET categori_name='$categori_name' WHERE id='$id'";
+		$sql="UPDATE item SET id_categori='$id_categori',img='$img',name_item='$name_item' ,price='$price',stok='$stok',status='$status' WHERE id='$id'";
 		mysqli_query($this->konek,$sql);
-		header('location:../categoris');
+		header('location:../items');
+	
+	}
+	public function showbycategori($categori)
+	{
+		$sql="SELECT * FROM item WHERE id_categori='$categori'";
+		$data=mysqli_query($this->konek,$sql);
+		while ($item_cate=mysqli_fetch_assoc($data))
+		{
+			$result_item_cate[]=$item_cate;
+		}
+		return $result_item_cate;
 	}
 } 

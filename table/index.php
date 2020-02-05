@@ -7,7 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+    <title>Pos</title>
     <!-- plugins:css -->
     <?php include_once"../layouts/links.php"; ?>
 
@@ -28,62 +28,55 @@
             <div class="row page-title-header">
               <div class="col-12">
                 <div class="page-header">
-                  <h4 class="page-title">Item</h4>
+                  <h4 class="page-title">Table</h4>
                 </div>
                 <div class="row">
                   <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                       <div class="card-body">
-                        <h4 class="card-title">Item</h4>
-                        <a class="btn btn-rounded btn-success mb-3" href="create_item.php">Tambah Item</a>
+                        <h4 class="card-title">Table</h4>
+                        <a class="btn btn-rounded btn-success mb-3" href="create_table.php">Tambah Table</a>
                         <?php 
-                        function status($status)
-                        {
-                          if ($status==1) 
-                          {
-                            return "<div class='badge badge-success'>Activ</div>";
-                          }
-                          else
-                          {
-                            return "<div class='badge badge-danger'>Non Activ</div>";
-                          }
-                        }
-                          include_once "../config/db_categori.php";
-                          include_once "../config/db_item.php";
-                            $read=new item();
-                            $data=$read->read();
-
+                          include_once "../config/db_table.php";
+                            $read=new table();
+                            $table=$read->read();
                          ?>
                         <table class="table table-bordered">
                           <thead>
                             <tr>
                               <th> No </th>
-                              <th> Categori</th>
-                              <th> Img </th>
-                              <th> Item Name </th>
-                              <th> Price </th>
-                              <th> Stok </th>
+                              <th> Table Number </th>
+                              <th> Seat </th>
                               <th> Status </th>
                               <th> Action </th>
                            </tr>
                           </thead>
                           <tbody>
                             <?php 
-                              if (!empty($data)) {
+                              function status_seat($status)
+                              {
+                                if ($status==1) 
+                                {
+                                  return "<div class='badge badge-success'>Availalble</div>";
+                                }
+                                else
+                                {
+                                  return "<div class='badge badge-danger'>Un Availalble</div>";
+                                }
+                              }
+                              if (!empty($table)) {
                                 $no=1;
-                                foreach ($data as $hasil) {
+                                foreach ($table as $hasil_table) {
                              ?>
                             <tr>
-                              <td><?= $no++;?></td>
-                              <td><?= $read->itemCategori($hasil['id_categori']); ?></td>
-                              <td><?= $hasil['img']; ?></td>
-                              <td><?= $hasil['name_item']; ?></td>
-                              <td>Rp.<?= $hasil['price']; ?></td>
-                              <td><?= $hasil['stok']; ?></td>
-                              <td><?= status($hasil['status']); ?></td>
+                              <td><?= $no++;?>
+                              </td>
+                              <td><?= $hasil_table['table_number']; ?></td>
+                              <td><?= $hasil_table['seat']; ?>. Orang</td>
+                              <td><?= status_seat($hasil_table['status']); ?></td>
                               <td> 
-                                <a class="btn btn-rounded btn-info" href="edit_item.php?id=<?= $hasil['id'];?>">edit</a>
-                                <a class="btn btn-rounded btn-danger delete" href="../action/item_proses.php?action=delete&id=<?= $hasil['id'];?> ">Delete</a>
+                                <a class="btn btn-rounded btn-info" href="edit_table.php?id=<?= $hasil_table['id'];?>">edit</a>
+                                <a class="btn btn-rounded btn-danger delete" href="../action/table_proses.php?action=delete&id=<?= $hasil_table['id'];?> ">Delete</a>
                               </td>
                             </tr>
                             <?php 

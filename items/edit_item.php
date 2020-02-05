@@ -1,9 +1,5 @@
 <?php 
   include_once "../action/cek.php";
-  include_once "../config/db_categori.php";
-  $data=new Categori();
-  $result=$data->read();
-
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +20,6 @@
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
          <?php include_once '../layouts/sidebar.php'; ?>
-       
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
@@ -38,7 +33,18 @@
                   <div class="col-12 grid-margin">
                     <div class="card">
                       <div class="card-body">
-                        <form class="form-sample" method="POST"  action="../action/item_proses.php?action=create">
+                        <form class="form-sample" method="POST"  action="../action/item_proses.php?action=update">
+                          <?php 
+                            include_once "../config/db_item.php";
+                            include_once "../config/db_categori.php";
+                            // item
+                            $orek=new item();
+                            $hasil=$orek->show($_GET['id']);
+                            // categori
+                            $categori=new categori();
+                            $result_categori=$categori->read();
+                           ?>
+                           <input type="hidden" name="id" value="<?= $hasil['id'];?>">
                           <p class="card-description"> Info Product </p>
                           <div class="row">
                             <div class="col-md-6">
@@ -47,14 +53,15 @@
                                 <div class="col-sm-9">
                                   <select class="form-control" name="id_categori">
                                     <option>-- select categori --</option>
-                                    <?php 
-                                      foreach ($result as $hasil) {
-                                     ?>
-                                    <option value="<?= $hasil['id'];?>"><?= $hasil['categori_name'];?></option>
-                                    <?php 
-
-                                      }
-                                     ?>
+                                      <?php 
+                                        foreach ($result_categori as $cat ) {  
+                                      ?>
+                                    <option value="<?= $cat['id'] ;?>" <?= ($cat['id']==$hasil['id_categori']) ? 'selected="selected"' : ''; ?>>
+                                      <?= $cat['categori_name'] ;?> 
+                                    </option>
+                                      <?php 
+                                        }
+                                      ?>
                                   </select>
                                 </div>
                               </div>
@@ -67,7 +74,7 @@
                                     <div class="form-group row">
                                       <div class="col-sm-9">
                                         <div class="form-group">
-                                          <input type="text" name="img" class="form-control" id="exampleInputPassword4" placeholder="Item Name">
+                                          <input type="text" name="img" class="form-control" id="exampleInputPassword4" placeholder="Item Name" value="<?= $hasil['img'];?>">
                                         </div>
                                       </div>
                                     </div>
@@ -91,7 +98,7 @@
                                 <label class="col-sm-3 col-form-label">Item Name</label>
                                 <div class="col-sm-9">
                                   <div class="form-group">
-                                    <input type="text" name="name_item" class="form-control" id="exampleInputPassword4" placeholder="Item Name">
+                                    <input type="text" name="name_item" class="form-control" id="exampleInputPassword4" placeholder="Item Name" value="<?= $hasil['name_item'] ;?>">
                                   </div>
                                 </div>
                               </div>
@@ -104,7 +111,7 @@
                               <label class="col-sm-3 col-form-label">Price</label>
                                <div class="col-sm-9">
                                  <div class="form-group">
-                                   <input type="number" name="price" class="form-control" id="exampleInputPassword4" placeholder="Price">
+                                   <input type="number" name="price" class="form-control" id="exampleInputPassword4" placeholder="Price" value="<?= $hasil['price'];?>">
                                  </div>
                                </div>
                              </div>
@@ -113,15 +120,15 @@
                              <div class="form-group row">
                                <label class="col-sm-3 col-form-label">Status</label>
                                <div class="col-sm-4">
-                                 <div class="form-radio">
+                                 <div class="form-radio"> 
                                    <label class="form-check-label">
-                                     <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="1" checked> Activ </label>
+                                     <input type="radio" class="form-check-input" name="status" id="membershipRadios1" value="1" <?php echo ($hasil['status']==1) ? 'checked="checked"' : ''; ?> > Activ </label>
                                  </div>
                                </div>
                                <div class="col-sm-5">
                                  <div class="form-radio">
                                    <label class="form-check-label">
-                                     <input type="radio" class="form-check-input" name="status" id="membershipRadios2" value="0"> Non Activ </label>
+                                     <input type="radio" class="form-check-input" name="status" id="membershipRadios2" value="0" <?= ($hasil['status']==0) ? 'checked="checked"' : ''; ?>> Non Activ </label>
                                  </div>
                                </div>
                              </div>
@@ -131,7 +138,7 @@
                                <label class="col-sm-3 col-form-label">Stok</label>
                                <div class="col-sm-9">
                                  <div class="form-group">
-                                   <input type="number" name="stok" class="form-control" id="exampleInputPassword4" placeholder="Stok">
+                                   <input type="number" name="stok" class="form-control" id="exampleInputPassword4" placeholder="Stok" value="<?= $hasil['stok'];?>">
                                  </div>
                                </div>
                              </div>

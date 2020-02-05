@@ -1,8 +1,8 @@
 <?php 
   include_once "../action/cek.php";
   include_once "../config/db_categori.php";
-  $data=new Categori();
-  $result=$data->read();
+  $categori=new categori();
+  $res=$categori->read();
 
  ?>
 <!DOCTYPE html>
@@ -48,7 +48,8 @@
                                   <select class="form-control" name="id_categori">
                                     <option>-- select categori --</option>
                                     <?php 
-                                      foreach ($result as $hasil) {
+                                      
+                                      foreach ($res as $hasil) {
                                      ?>
                                     <option value="<?= $hasil['id'];?>"><?= $hasil['categori_name'];?></option>
                                     <?php 
