@@ -65,7 +65,7 @@
                                 </div>
                               </div>
                           </div>
-                          <button type="submit" class="btn btn-success mx-2 my-2">Order Item</button>
+                          <button type="submit" class="btn btn-success mx-2 my-2">Show Item</button>
                           <a href="index.php" class="btn btn-light my-2">Back</a>
                         </form>
                         </div>

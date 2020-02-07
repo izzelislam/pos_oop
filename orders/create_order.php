@@ -86,10 +86,8 @@
                                  <div class="col-md-12">
                                    <select class="form-control" name="status">
                                      <option>-- Select Status --</option>                   
-                                        <option value="<?= 3;?>">Lunas</option>
-                                        <option value="<?= 2;?>">Belum Lunas</option>
-                                        <option value="<?= 1;?>">Terboking</option>
-                                        <option value="<?= 0;?>">Cancel</option>
+                                        <option value="<?= 2;?>" selected="selected">Belum Lunas</option>
+                                        <option value="<?= 1;?>">Di Boking</option>
                                    </select>
                                  </div>
                                </div>                          

@@ -5,7 +5,7 @@ class order extends con
 {
 	public function read()
 	{
-		$data=mysqli_query($this->konek,"SELECT * FROM order_item");
+		$data=mysqli_query($this->konek,"SELECT * FROM order_item ORDER BY datee ASC");
 
 		if (mysqli_num_rows($data)) {
 			while ($result=mysqli_fetch_assoc($data)) {
@@ -39,13 +39,14 @@ class order extends con
 	{
 		$sql="SELECT * FROM order_item WHERE id='$id'";
 		$data=mysqli_query($this->konek,$sql);
+
 		return mysqli_fetch_assoc($data);
+
 	}
-	public function update_table($id,$table_number,$seat,$status)
+	public function update_order($id,$id_user,$id_table_number,$status,$datee)
 	{
-		$sql="UPDATE table_number SET table_number='$table_number',seat='$seat',status='$status' WHERE id='$id'";
+		$sql="UPDATE order_item SET id_user='$id_user',id_table_number='$id_table_number',status='$status',datee='$datee' WHERE id='$id'";
 		mysqli_query($this->konek,$sql);
-		header('location:../table');
 	}
 	public function userorder($id)
 	{

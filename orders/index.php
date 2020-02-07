@@ -64,7 +64,7 @@
                                 {
                                   return "<div class='badge btn-warning'>Terboking</div>";
                                 }
-                                 else if ($trx == 4) 
+                                 else if ($trx == 2) 
                                 {
                                   return "<div class='badge btn-primary'>Belum Lunas</div>";
                                 }
@@ -84,9 +84,9 @@
                               <td><?= $dat->usertable($hasil['id_table_number']); ?></td>
                               <td><?= status_trx($hasil['status']); ?></td>
                               <td> 
-                                <a class="btn btn-rounded btn-primary" href="user_detail.php?id=<?= $hasil['id'];?>">Bayar</a>
+                                <a class="btn btn-rounded btn-primary" href="../action/order_proses.php?id=<?= $hasil['id'];?>&action=bayar">Bayar</a>
                                 <a class="btn btn-rounded btn-warning" href="user_detail.php?id=<?= $hasil['id'];?>">Detail</a>
-                                <a class="btn btn-rounded btn-info" href="edit_order.php?action=update&id=<?= $hasil['id'];?>">Edit</a>
+                                <a class="btn btn-rounded btn-info" href="edit_order.php?id=<?= $hasil['id'];?>">Edit</a>
                               </td>
                             </tr>
                             <?php 

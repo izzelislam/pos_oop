@@ -2,13 +2,36 @@
   include_once "../action/cek.php";
   include_once "../config/db_order.php";
   include_once "../config/db_user.php";
+  include_once "../config/db_table.php";
 
   // select table where available
   $order=new order();
-  $result_order_table=$order->tableactiv(1);
-  // select user
-  $user=new user();
-  $result_user=$user->read();
+  $show=$order->show($_GET['id']);
+  //table
+  $table=new table();
+  $result_table=$table->read();
+  $status=[0,1,2,3];
+
+  function status_trx($trx)
+                              {
+                                if ($trx == 0) 
+                                {
+                                  return "<div class='badge btn-danger'>Cancel</div>";
+                                }
+                                else if ($trx == 1) 
+                                {
+                                  return "<div class='badge btn-warning'>Terboking</div>";
+                                }
+                                 else if ($trx == 2) 
+                                {
+                                  return "<div class='badge btn-primary'>Belum Lunas</div>";
+                                }
+                                 else if ($trx == 3) 
+                                {
+                                  return "<div class='badge btn-success'>Lunas</div>";
+                                }
+                              }
+ 
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,25 +66,10 @@
                    <div class="col-md-12 grid-margin stretch-card">
                      <div class="card">
                        <div class="card-body">
-                         <form class="forms-sample" method="post" action="../action/order_proses.php?action=create">
-                           <div class="form-group">
-                               <div class="form-group row">
-                                 <label class="col-md-12 col-form-label">User</label>
-                                 <div class="col-md-12">
-                                   <select class="form-control" name="id_user">
-                                     <option>-- Select User --</option>
-                                     <?php 
-                                      foreach ($result_user as $user_select) {
-                                      ?>
-                                        <option value="<?= $user_select['id'] ;?>"><?= $user_select['name'];?></option>
-                                      <?php
-                                      }
-                                     ?>
-                                     
-                                   </select>
-                                 </div>
-                               </div>                          
-                           </div>
+                         <form class="forms-sample" method="post" action="../action/order_proses.php?action=update">
+                          <input type="hidden" name="id" value="<?= $show['id'];?>">
+                          <input type="hidden" name="id_user" value="<?= $show['id_user'];?>">
+                          <input type="hidden" name="datee" value="<?= $show['datee'];?>">
                            <div class="form-group">
                                <div class="form-group row">
                                  <label class="col-md-12 col-form-label">Table Number</label>
@@ -69,33 +77,36 @@
                                    <select class="form-control" name="id_table_number">
                                      <option>-- Select Table --</option>
                                      <?php 
-                                      foreach ($result_order_table as $tableactiv ) {
+                                      foreach ($result_table as $order_table) {
                                       ?>
-                                        <option value="<?= $tableactiv['id'];?>"><?= $tableactiv['table_number'];?></option>
+                                        <option value="<?= $order_table['id'] ;?>" <?= ($order_table['id']==$show['id_table_number']) ? 'selected="selected"' : ''; ?>><?= $order_table['table_number'] ;?></option>
                                       <?php
-                                        }
-                                      ?>
-                                     
+                                      }
+                                     ?>
                                    </select>
                                  </div>
                                </div>                          
                            </div>
+
                            <div class="form-group">
                                <div class="form-group row">
                                  <label class="col-md-12 col-form-label">Status</label>
                                  <div class="col-md-12">
                                    <select class="form-control" name="status">
                                      <option>-- Select Status --</option>                   
-                                        <option value="<?= 3;?>">Lunas</option>
-                                        <option value="<?= 2;?>">Belum Lunas</option>
-                                        <option value="<?= 1;?>">Terboking</option>
-                                        <option value="<?= 0;?>">Cancel</option>
+                                        <?php
+                                          foreach ($status as $sts) {
+                                            ?>
+                                            <option value="<?= $sts;?>" <?= ($sts==$show['status'])?'selected="selected"':'';?>><?= status_trx($sts);?></option>
+                                          <?php
+                                           } 
+                                         ?>
                                    </select>
                                  </div>
                                </div>                          
                            </div>
                            
-                           <button type="submit" class="btn btn-success mr-2">Order</button>
+                           <button type="submit" class="btn btn-success mr-2">Update</button>
                            <a href="index.php" class="btn btn-light">Back</a>
                          </form>
                        </div>

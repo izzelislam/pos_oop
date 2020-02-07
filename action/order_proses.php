@@ -32,14 +32,45 @@
  	header('location:../orders');
  }
  elseif ($proses=="update") {
- 	$id 		=$_POST['id'];
- 	$id_categori=$_POST['id_categori'];
- 	$img		=$_POST['img'];
- 	$name_item	=$_POST['name_item'];
- 	$price		=$_POST['price'];
- 	$stok		=$_POST['stok'];
- 	$status		=$_POST['status'];
- 	$order->update_item($id,$id_categori,$img,$name_item,$price,$stok,$status);
+ 	$id 			 =$_POST['id'];
+ 	$id_user		 =$_POST['id_user'];
+ 	$id_table_number =$_POST['id_table_number'];
+ 	$status			 =$_POST['status'];
+ 	$datee			 =$_POST['datee'];
+ 	$order->update_order($id,$id_user,$id_table_number,$status,$datee);
+ 	if ($status == 0) 
+ 	{
+ 		$data_order=$order->show($id);
+ 		$show_table=$table->show($data_order['id_table_number']);
+ 		$status=1;
+ 		$order->changetable($data_order['id_table_number'],$show_table['table_number'],$show_table['seat'],$status);
+ 	}
+ 	else if($status == 1)
+ 	{
+ 		$data_order=$order->show($id);
+ 		$show_table=$table->show($data_order['id_table_number']);
+ 		$status=0;
+ 		$order->changetable($data_order['id_table_number'],$show_table['table_number'],$show_table['seat'],$status);
+ 	}
+ 	else if($status == 2)
+ 	{
+ 		$data_order=$order->show($id);
+ 		$show_table=$table->show($data_order['id_table_number']);
+ 		$status=0;
+ 		$order->changetable($data_order['id_table_number'],$show_table['table_number'],$show_table['seat'],$status);
+ 	}
  	
- 	// header('location:../items');
+ 	header('location:../orders');
+ }
+ elseif ($proses=="bayar") {
+ 	$bayar=$order->show($_GET['id']);
+ 	$status=3;
+ 	$order->update_order($bayar['id'],$bayar['id_user'],$bayar['id_table_number'],$status,$bayar['datee']);
+
+ 	$data_order=$order->show($_GET['id']);
+ 	$show_table=$table->show($data_order['id_table_number']);
+ 	$status=1;
+ 	$order->changetable($data_order['id_table_number'],$show_table['table_number'],$show_table['seat'],$status);
+ 	
+ 	header('location:../orders');
  }
